@@ -1,0 +1,181 @@
+:root {
+  --border-radius: 4px;
+  --input-border-color: #3462eb66;
+  --input-invalid-color: #f74a28;
+  --spacing-gap: 4px;
+  --spacing-padding: 1rem;
+  --button-color: #596D48;
+}
+
+*, *::before, *::after {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  line-height: 1.5;
+  word-spacing: 2px;
+}
+
+body {
+  background: url('../assets/robot-for-sunai.jpeg') no-repeat;
+  background-size: 30% 100vh;
+}
+
+.container {
+  width: 70%;
+  margin-left: auto;
+  display: flex;
+  flex-direction: column;
+
+  & header, main, footer {
+    height: 10vh;
+    background: #aaa2;
+  }
+
+  & main {
+    height: 80vh;
+    
+    & .intro {
+      padding: var(--spacing-padding);
+    }
+
+    & p {
+      margin-bottom: 1rem;
+      font-weight: 700;
+    }
+
+    & form {
+      border: 1px solid #000;
+      padding: var(--spacing-padding);
+      display: flex;
+      flex-direction: column;
+      background: #fff;
+      gap: 4px;
+      border-radius: var(--border-radius);
+      width: 80%;
+      margin: 0 auto;
+
+      & h2 {
+        margin-bottom: 1rem;
+      }
+
+      & .row {
+        background: #aaa2;
+        position: relative;
+        border-radius: var(--border-radius);
+
+        & span {
+          display: inline-block;
+          font-size: 0.8rem;
+        }
+
+        & label {
+          display: block;
+        }
+
+        & label::after {
+          content: '*';
+          color: #f00;
+        }
+
+        & input {
+          margin-bottom: 1rem;
+          padding: 2px;
+          border-radius: var(--border-radius);
+          border: 1px solid #0002;
+          outline: none;
+          width: 200px;
+        }
+
+        & input:focus {
+          border: 1px solid var(--input-border-color);
+        }
+
+        & input:invalid {
+          border: 1px solid var(--input-invalid-color);
+        }
+
+        & input[id='fname']:invalid + span::before {
+          display: inline-block;
+          position: absolute;
+          left: 210px;
+          top: 20px;
+          content: '! Alphabets only';
+          font-size: 0.8rem;
+          color: #f00;
+        }
+
+        & input[id='lname']:invalid + span::before {
+          display: inline-block;
+          position: absolute;
+          left: 210px;
+          top: 88px;
+          content: '! Alphabets only';
+          font-size: 0.8rem;
+          color: #f00;
+        }
+
+        & input[type='email']:invalid + span::before {
+          content: '! example: you@gmail.com';
+          color: #f00;
+          font-size: 0.8rem;
+          top: 100px;
+          left: 300px;
+        }
+
+        & input[id='phone']:invalid + span::before {
+          display: inline-block;
+          position: absolute;
+          left: 208px;
+          top: 88px;
+          content: '! example: +12 985 522';
+          font-size: 0.8rem;
+          color: #f00;
+        }
+
+        & input[id='password'] + ul {
+          position: absolute;
+          left: 240px;
+          top: 20px;
+          font-size: 0.8rem;
+          color: #f00;
+          visibility: hidden;
+        }
+
+        & input[id='password']:invalid + ul {
+          visibility: initial;
+        }
+      }
+
+      & .btn {
+        margin-top: 1rem;
+
+        & button {
+          padding: 4px;
+          border-radius: var(--border-radius);
+          background-color: var(--button-color);
+          color: #fff;
+          border: none;
+          cursor: pointer;
+          width: 120px;
+        }
+      }
+
+      & .msg {
+        margin-top: 1rem;
+        font-size: 0.8rem;
+
+        & #mgs {
+          font-weight: 100;
+          font-size: inherit;
+        }
+
+        & span {
+          color: var(--button-color);
+          cursor: pointer;          
+        }
+      }
+    }
+  }
+}
+
+
